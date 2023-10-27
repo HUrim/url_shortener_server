@@ -1,6 +1,5 @@
 import { ObjectId } from 'mongodb';
 import mongoose, { Condition } from 'mongoose';
-let db: any
 export const getDbConnection = () => mongoose.connection;
 export const getCollectionId: Condition<ObjectId> = (id: string) => { return new ObjectId(id) }
 export const connectDB = async (dbURI: string, dbName: string) => {
