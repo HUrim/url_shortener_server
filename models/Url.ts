@@ -3,8 +3,9 @@ import * as mongoose from "mongoose";
 interface UrlDocument extends mongoose.Document {
     longUrl: string
     shortUrl: string
-    startDate: mongoose.Date
-    expiryDate: mongoose.Date
+    expirationTime: string
+    startDate: Date
+    expiryDate: Date
 }
 
 const UrlSchema = new mongoose.Schema({
@@ -16,6 +17,10 @@ const UrlSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true
+    },
+    expirationTime: {
+        type: String,
+        require: true
     },
     startDate: {
         type: Date,
