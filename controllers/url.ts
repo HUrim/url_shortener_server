@@ -66,12 +66,10 @@ export const getShortUrl = async (req: Request, res: Response) => {
         if(new Date() > urlData?.expiryDate) {
             return res.status(410).json({error: "Url no longer exists"})
         } else {
-            res.redirect(urlData?.longUrl)
+            res.json(urlData?.longUrl)
+            // res.redirect(urlData?.longUrl)
         }
     }).catch(err => { 
         res.status(500).json('Server Error: ' + err)
     })
-    // app.get('/redirect', (req, res) => {
-    //     res.redirect(302, 'https://www.youtube.com/watch?v=cva5NQTnbu4');
-    // });
 }

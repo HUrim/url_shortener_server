@@ -5,7 +5,7 @@ import { connectDB } from "./config/db";
 import bodyParser = require("body-parser");
 
 const app = express();
-// app.use(cors())
+app.use(cors())
 connectDB(process.env.DB_CONNECTION!, process.env.DB_NAME!)
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
